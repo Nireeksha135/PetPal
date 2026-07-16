@@ -7,6 +7,8 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
+import PetsList from "./pages/PetsList";
+import PetProfile from "./pages/PetProfile";
 import NotFound from "./pages/NotFound";
 
 export default function App() {
@@ -26,6 +28,8 @@ export default function App() {
       <Route element={<ProtectedRoute />}>
         <Route element={<AppLayout />}>
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/pets" element={<PetsList />} />
+          <Route path="/pets/:petId" element={<PetProfile />} />
         </Route>
       </Route>
 
