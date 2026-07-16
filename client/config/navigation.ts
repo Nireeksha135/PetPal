@@ -36,7 +36,7 @@ export const navigation: NavGroupConfig[] = [
     title: "Overview",
     items: [
       { label: "Dashboard", path: "/dashboard", icon: LayoutDashboard, enabled: true },
-      { label: "My Pets", path: "/pets", icon: PawPrint, enabled: false },
+      { label: "My Pets", path: "/pets", icon: PawPrint, enabled: true },
     ],
   },
   {
