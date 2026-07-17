@@ -37,6 +37,19 @@ export interface PetListItem {
   avatarUrl: string | null;
 }
 
+export interface PetFormPayload {
+  name: string;
+  species: PetSpecies;
+  breed?: string;
+  gender: PetGender;
+  dateOfBirth?: string;
+  weightKg?: number;
+  color?: string;
+  microchipId?: string;
+  isNeutered: boolean;
+  notes?: string;
+}
+
 interface RawPet {
   id: string;
   owner_id: string;
@@ -92,5 +105,20 @@ export function mapPetListItem(raw: RawPetListItem): PetListItem {
     breed: raw.breed,
     dateOfBirth: raw.date_of_birth,
     avatarUrl: raw.avatar_url,
+  };
+}
+
+export function toPetCreatePayload(payload: PetFormPayload) {
+  return {
+    name: payload.name,
+    species: payload.species,
+    breed: payload.breed || null,
+    gender: payload.gender,
+    date_of_birth: payload.dateOfBirth || null,
+    weight_kg: payload.weightKg ?? null,
+    color: payload.color || null,
+    microchip_id: payload.microchipId || null,
+    is_neutered: payload.isNeutered,
+    notes: payload.notes || null,
   };
 }
