@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, UploadFile, File
 from sqlalchemy.orm import Session
 
 from server.database.database import get_db
@@ -10,9 +10,11 @@ from server.services.pet_service import (
     get_pet,
     create_pet,
     update_pet,
+    update_pet_avatar,
     delete_pet,
     PetError,
 )
+from server.services.storage_service import upload_pet_avatar, StorageError
 
 router = APIRouter(prefix="/pets", tags=["pets"])
 
@@ -56,6 +58,26 @@ def patch_pet(
     try:
         return update_pet(db, current_user.id, pet_id, payload)
     except PetError as e:
+        raise HTTPException(status_code=e.status_code, detail=e.message)
+
+
+@router.post("/{pet_id}/avatar", response_model=PetRead)
+async def post_pet_avatar(
+    pet_id: str,
+    file: UploadFile = File(...),
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    try:
+        get_pet(db, current_user.id, pet_id)
+        file_bytes = await file.read()
+        avatar_url = upload_pet_avatar(
+            file_bytes, file.content_type or "", pet_id
+        )
+        return update_pet_avatar(db, current_user.id, pet_id, avatar_url)
+    except PetError as e:
+        raise HTTPException(status_code=e.status_code, detail=e.message)
+    except StorageError as e:
         raise HTTPException(status_code=e.status_code, detail=e.message)
 
 
