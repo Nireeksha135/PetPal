@@ -8,23 +8,24 @@ from server.schemas.dashboard import (
     ReminderItem,
 )
 from server.services.pet_service import count_pets
+from server.services.medicine_service import count_upcoming_and_overdue
 
 
 def get_dashboard_summary(db: Session, user: User) -> DashboardSummary:
     """
     Aggregates dashboard data for the current user.
 
-    Reminder and activity tables are introduced in later features
-    (Medicine Tracker, Vaccination Tracker, Vet Visit Manager). Until
-    those models exist, those counts stay at zero. Pet count is now
-    real, sourced from the Pet Profile feature.
+    Vaccination, deworming, flea/tick, and vet-visit reminders are added
+    in later features. Medicine reminders are now sourced from the
+    Medicine Tracker feature.
     """
     total_pets = count_pets(db, user.id)
+    upcoming, overdue = count_upcoming_and_overdue(db, user.id)
 
     stats = DashboardStats(
         total_pets=total_pets,
-        upcoming_reminders_count=0,
-        overdue_reminders_count=0,
+        upcoming_reminders_count=upcoming,
+        overdue_reminders_count=overdue,
         vet_visits_this_month=0,
     )
 
