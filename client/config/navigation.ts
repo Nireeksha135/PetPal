@@ -42,7 +42,7 @@ export const navigation: NavGroupConfig[] = [
   {
     title: "Health Tracking",
     items: [
-      { label: "Medicine", path: "/medicine", icon: Pill, enabled: false },
+      { label: "Medicine", path: "/medicine", icon: Pill, enabled: true },
       { label: "Vaccinations", path: "/vaccinations", icon: Syringe, enabled: false },
       { label: "Deworming", path: "/deworming", icon: ShieldPlus, enabled: false },
       { label: "Flea & Tick", path: "/flea-tick", icon: Bug, enabled: false },
