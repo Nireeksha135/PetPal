@@ -11,6 +11,10 @@ import PetsList from "./pages/PetsList";
 import PetProfile from "./pages/PetProfile";
 import AddPet from "./pages/AddPet";
 import EditPet from "./pages/EditPet";
+import MedicineList from "./pages/MedicineList";
+import AddMedicine from "./pages/AddMedicine";
+import MedicineDetail from "./pages/MedicineDetail";
+import EditMedicine from "./pages/EditMedicine";
 import NotFound from "./pages/NotFound";
 
 export default function App() {
@@ -34,6 +38,10 @@ export default function App() {
           <Route path="/pets/new" element={<AddPet />} />
           <Route path="/pets/:petId/edit" element={<EditPet />} />
           <Route path="/pets/:petId" element={<PetProfile />} />
+          <Route path="/medicine" element={<MedicineList />} />
+          <Route path="/medicine/new" element={<AddMedicine />} />
+          <Route path="/medicine/:medicineId/edit" element={<EditMedicine />} />
+          <Route path="/medicine/:medicineId" element={<MedicineDetail />} />
         </Route>
       </Route>
 
