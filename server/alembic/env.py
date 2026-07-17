@@ -5,7 +5,7 @@ from sqlalchemy import engine_from_config, pool
 
 from server.config import get_settings
 from server.database.base import Base
-from server.models import User, Pet  # noqa: F401
+from server.models import User, Pet, Medicine, MedicineLog  # noqa: F401
 
 config = context.config
 settings = get_settings()
