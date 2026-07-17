@@ -42,6 +42,14 @@ def update_pet(db: Session, owner_id: str, pet_id: str, payload: PetUpdate) -> P
     return pet
 
 
+def update_pet_avatar(db: Session, owner_id: str, pet_id: str, avatar_url: str) -> Pet:
+    pet = get_pet(db, owner_id, pet_id)
+    pet.avatar_url = avatar_url
+    db.commit()
+    db.refresh(pet)
+    return pet
+
+
 def delete_pet(db: Session, owner_id: str, pet_id: str) -> None:
     pet = get_pet(db, owner_id, pet_id)
     db.delete(pet)
