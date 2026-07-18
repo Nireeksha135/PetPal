@@ -8,24 +8,26 @@ from server.schemas.dashboard import (
     ReminderItem,
 )
 from server.services.pet_service import count_pets
-from server.services.medicine_service import count_upcoming_and_overdue
+from server.services.medicine_service import count_upcoming_and_overdue as medicine_counts
+from server.services.vaccination_service import count_upcoming_and_overdue as vaccination_counts
 
 
 def get_dashboard_summary(db: Session, user: User) -> DashboardSummary:
     """
     Aggregates dashboard data for the current user.
 
-    Vaccination, deworming, flea/tick, and vet-visit reminders are added
-    in later features. Medicine reminders are now sourced from the
-    Medicine Tracker feature.
+    Deworming, flea/tick, and vet-visit reminders are added in later
+    features. Medicine and vaccination reminders are combined here.
     """
     total_pets = count_pets(db, user.id)
-    upcoming, overdue = count_upcoming_and_overdue(db, user.id)
+
+    med_upcoming, med_overdue = medicine_counts(db, user.id)
+    vax_upcoming, vax_overdue = vaccination_counts(db, user.id)
 
     stats = DashboardStats(
         total_pets=total_pets,
-        upcoming_reminders_count=upcoming,
-        overdue_reminders_count=overdue,
+        upcoming_reminders_count=med_upcoming + vax_upcoming,
+        overdue_reminders_count=med_overdue + vax_overdue,
         vet_visits_this_month=0,
     )
 
