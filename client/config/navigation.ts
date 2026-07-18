@@ -43,7 +43,7 @@ export const navigation: NavGroupConfig[] = [
     title: "Health Tracking",
     items: [
       { label: "Medicine", path: "/medicine", icon: Pill, enabled: true },
-      { label: "Vaccinations", path: "/vaccinations", icon: Syringe, enabled: false },
+      { label: "Vaccinations", path: "/vaccinations", icon: Syringe, enabled: true },
       { label: "Deworming", path: "/deworming", icon: ShieldPlus, enabled: false },
       { label: "Flea & Tick", path: "/flea-tick", icon: Bug, enabled: false },
       { label: "Vet Visits", path: "/vet-visits", icon: Stethoscope, enabled: false },
