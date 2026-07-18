@@ -23,6 +23,10 @@ import DewormingList from "./pages/DewormingList";
 import AddDeworming from "./pages/AddDeworming";
 import DewormingDetail from "./pages/DewormingDetail";
 import EditDeworming from "./pages/EditDeworming";
+import FleaTickList from "./pages/FleaTickList";
+import AddFleaTick from "./pages/AddFleaTick";
+import FleaTickDetail from "./pages/FleaTickDetail";
+import EditFleaTick from "./pages/EditFleaTick";
 import NotFound from "./pages/NotFound";
 
 export default function App() {
@@ -64,6 +68,10 @@ export default function App() {
           <Route path="/deworming/new" element={<AddDeworming />} />
           <Route path="/deworming/:recordId/edit" element={<EditDeworming />} />
           <Route path="/deworming/:recordId" element={<DewormingDetail />} />
+          <Route path="/flea-tick" element={<FleaTickList />} />
+          <Route path="/flea-tick/new" element={<AddFleaTick />} />
+          <Route path="/flea-tick/:treatmentId/edit" element={<EditFleaTick />} />
+          <Route path="/flea-tick/:treatmentId" element={<FleaTickDetail />} />
         </Route>
       </Route>
 
