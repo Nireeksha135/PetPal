@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from server.config import get_settings
-from server.routes import health, auth, dashboard, pets, medicines, vaccinations
+from server.routes import health, auth, dashboard, pets, medicines, vaccinations, deworming
 
 settings = get_settings()
 
@@ -26,6 +26,7 @@ app.include_router(dashboard.router, prefix="/api")
 app.include_router(pets.router, prefix="/api")
 app.include_router(medicines.router, prefix="/api")
 app.include_router(vaccinations.router, prefix="/api")
+app.include_router(deworming.router, prefix="/api")
 
 
 @app.get("/")
