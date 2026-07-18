@@ -15,6 +15,10 @@ import MedicineList from "./pages/MedicineList";
 import AddMedicine from "./pages/AddMedicine";
 import MedicineDetail from "./pages/MedicineDetail";
 import EditMedicine from "./pages/EditMedicine";
+import VaccinationList from "./pages/VaccinationList";
+import AddVaccination from "./pages/AddVaccination";
+import VaccinationDetail from "./pages/VaccinationDetail";
+import EditVaccination from "./pages/EditVaccination";
 import NotFound from "./pages/NotFound";
 
 export default function App() {
@@ -42,6 +46,16 @@ export default function App() {
           <Route path="/medicine/new" element={<AddMedicine />} />
           <Route path="/medicine/:medicineId/edit" element={<EditMedicine />} />
           <Route path="/medicine/:medicineId" element={<MedicineDetail />} />
+          <Route path="/vaccinations" element={<VaccinationList />} />
+          <Route path="/vaccinations/new" element={<AddVaccination />} />
+          <Route
+            path="/vaccinations/:vaccinationId/edit"
+            element={<EditVaccination />}
+          />
+          <Route
+            path="/vaccinations/:vaccinationId"
+            element={<VaccinationDetail />}
+          />
         </Route>
       </Route>
 
