@@ -12,14 +12,20 @@ from server.services.medicine_service import count_upcoming_and_overdue as medic
 from server.services.vaccination_service import count_upcoming_and_overdue as vaccination_counts
 from server.services.deworming_service import count_upcoming_and_overdue as deworming_counts
 from server.services.flea_tick_service import count_upcoming_and_overdue as flea_tick_counts
+from server.services.vet_visit_service import (
+    count_visits_this_month,
+    count_upcoming_follow_ups,
+)
 
 
 def get_dashboard_summary(db: Session, user: User) -> DashboardSummary:
     """
     Aggregates dashboard data for the current user.
 
-    Vet-visit reminders are added in the next feature. Medicine,
-    vaccination, deworming, and flea/tick reminders are combined here.
+    All health-tracking features (Medicine, Vaccinations, Deworming,
+    Flea & Tick, Vet Visits) now feed into the reminder counts and
+    vet-visit stat. Recent activity and upcoming reminder lists remain
+    a future enhancement (Notifications/Analytics features).
     """
     total_pets = count_pets(db, user.id)
 
@@ -27,12 +33,17 @@ def get_dashboard_summary(db: Session, user: User) -> DashboardSummary:
     vax_upcoming, vax_overdue = vaccination_counts(db, user.id)
     deworm_upcoming, deworm_overdue = deworming_counts(db, user.id)
     flea_upcoming, flea_overdue = flea_tick_counts(db, user.id)
+    followup_upcoming, followup_overdue = count_upcoming_follow_ups(db, user.id)
 
     stats = DashboardStats(
         total_pets=total_pets,
-        upcoming_reminders_count=med_upcoming + vax_upcoming + deworm_upcoming + flea_upcoming,
-        overdue_reminders_count=med_overdue + vax_overdue + deworm_overdue + flea_overdue,
-        vet_visits_this_month=0,
+        upcoming_reminders_count=(
+            med_upcoming + vax_upcoming + deworm_upcoming + flea_upcoming + followup_upcoming
+        ),
+        overdue_reminders_count=(
+            med_overdue + vax_overdue + deworm_overdue + flea_overdue + followup_overdue
+        ),
+        vet_visits_this_month=count_visits_this_month(db, user.id),
     )
 
     recent_activity: list[ActivityItem] = []
