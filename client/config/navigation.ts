@@ -46,7 +46,7 @@ export const navigation: NavGroupConfig[] = [
       { label: "Vaccinations", path: "/vaccinations", icon: Syringe, enabled: true },
       { label: "Deworming", path: "/deworming", icon: ShieldPlus, enabled: true },
       { label: "Flea & Tick", path: "/flea-tick", icon: Bug, enabled: true },
-      { label: "Vet Visits", path: "/vet-visits", icon: Stethoscope, enabled: false },
+      { label: "Vet Visits", path: "/vet-visits", icon: Stethoscope, enabled: true },
       { label: "Documents", path: "/documents", icon: FileText, enabled: false },
     ],
   },
