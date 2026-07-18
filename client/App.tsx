@@ -19,6 +19,10 @@ import VaccinationList from "./pages/VaccinationList";
 import AddVaccination from "./pages/AddVaccination";
 import VaccinationDetail from "./pages/VaccinationDetail";
 import EditVaccination from "./pages/EditVaccination";
+import DewormingList from "./pages/DewormingList";
+import AddDeworming from "./pages/AddDeworming";
+import DewormingDetail from "./pages/DewormingDetail";
+import EditDeworming from "./pages/EditDeworming";
 import NotFound from "./pages/NotFound";
 
 export default function App() {
@@ -56,6 +60,10 @@ export default function App() {
             path="/vaccinations/:vaccinationId"
             element={<VaccinationDetail />}
           />
+          <Route path="/deworming" element={<DewormingList />} />
+          <Route path="/deworming/new" element={<AddDeworming />} />
+          <Route path="/deworming/:recordId/edit" element={<EditDeworming />} />
+          <Route path="/deworming/:recordId" element={<DewormingDetail />} />
         </Route>
       </Route>
 
