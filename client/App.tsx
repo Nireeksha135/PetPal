@@ -27,6 +27,10 @@ import FleaTickList from "./pages/FleaTickList";
 import AddFleaTick from "./pages/AddFleaTick";
 import FleaTickDetail from "./pages/FleaTickDetail";
 import EditFleaTick from "./pages/EditFleaTick";
+import VetVisitList from "./pages/VetVisitList";
+import AddVetVisit from "./pages/AddVetVisit";
+import VetVisitDetail from "./pages/VetVisitDetail";
+import EditVetVisit from "./pages/EditVetVisit";
 import NotFound from "./pages/NotFound";
 
 export default function App() {
@@ -72,6 +76,10 @@ export default function App() {
           <Route path="/flea-tick/new" element={<AddFleaTick />} />
           <Route path="/flea-tick/:treatmentId/edit" element={<EditFleaTick />} />
           <Route path="/flea-tick/:treatmentId" element={<FleaTickDetail />} />
+          <Route path="/vet-visits" element={<VetVisitList />} />
+          <Route path="/vet-visits/new" element={<AddVetVisit />} />
+          <Route path="/vet-visits/:visitId/edit" element={<EditVetVisit />} />
+          <Route path="/vet-visits/:visitId" element={<VetVisitDetail />} />
         </Route>
       </Route>
 
