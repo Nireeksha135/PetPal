@@ -13,6 +13,7 @@ from server.models import (
     Vaccination,
     Deworming,
     FleaTickTreatment,
+    VetVisit,
 )  # noqa: F401
 
 config = context.config
