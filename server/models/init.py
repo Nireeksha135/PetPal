@@ -5,3 +5,4 @@ from server.models.vaccination import Vaccination  # noqa: F401
 from server.models.deworming import Deworming  # noqa: F401
 from server.models.flea_tick import FleaTickTreatment  # noqa: F401
 from server.models.vet_visit import VetVisit, VisitType  # noqa: F401
+from server.models.document import MedicalDocument, DocumentCategory  # noqa: F401
