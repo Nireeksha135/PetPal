@@ -12,6 +12,7 @@ from server.routes import (
     deworming,
     flea_tick,
     vet_visits,
+    documents,
 )
 
 settings = get_settings()
@@ -39,6 +40,7 @@ app.include_router(vaccinations.router, prefix="/api")
 app.include_router(deworming.router, prefix="/api")
 app.include_router(flea_tick.router, prefix="/api")
 app.include_router(vet_visits.router, prefix="/api")
+app.include_router(documents.router, prefix="/api")
 
 
 @app.get("/")
