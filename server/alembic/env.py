@@ -16,6 +16,8 @@ from server.models import (
     VetVisit,
     MedicalDocument,
     AIConsultation,
+    ChatSession,
+    ChatMessage,
 )  # noqa: F401
 
 config = context.config
