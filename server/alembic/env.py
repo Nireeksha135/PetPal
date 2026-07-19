@@ -14,6 +14,7 @@ from server.models import (
     Deworming,
     FleaTickTreatment,
     VetVisit,
+    MedicalDocument,
 )  # noqa: F401
 
 config = context.config
