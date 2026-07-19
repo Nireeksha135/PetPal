@@ -8,7 +8,6 @@ import {
   ShieldPlus,
   Stethoscope,
   FileText,
-  Images,
   Bot,
   MessageCircle,
   Salad,
@@ -51,15 +50,9 @@ export const navigation: NavGroupConfig[] = [
     ],
   },
   {
-    title: "Memories",
-    items: [
-      { label: "Gallery", path: "/gallery", icon: Images, enabled: false },
-    ],
-  },
-  {
     title: "AI Assistant",
     items: [
-      { label: "AI Pet Doctor", path: "/ai-pet-doctor", icon: Bot, enabled: false },
+      { label: "AI Pet Doctor", path: "/ai-pet-doctor", icon: Bot, enabled: true },
       { label: "Ask PetPal", path: "/ask-petpal", icon: MessageCircle, enabled: false },
       { label: "Diet Assistant", path: "/diet-assistant", icon: Salad, enabled: false },
       { label: "Daily Summary", path: "/daily-summary", icon: Sparkles, enabled: false },
