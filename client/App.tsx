@@ -35,6 +35,7 @@ import DocumentsList from "./pages/DocumentsList";
 import DocumentDetail from "./pages/DocumentDetail";
 import AIPetDoctor from "./pages/AIPetDoctor";
 import AIConsultationDetail from "./pages/AIConsultationDetail";
+import AskPetPal from "./pages/AskPetPal";
 import NotFound from "./pages/NotFound";
 
 export default function App() {
@@ -91,6 +92,8 @@ export default function App() {
             path="/ai-pet-doctor/:consultationId"
             element={<AIConsultationDetail />}
           />
+          <Route path="/ask-petpal" element={<AskPetPal />} />
+          <Route path="/ask-petpal/:sessionId" element={<AskPetPal />} />
         </Route>
       </Route>
 
