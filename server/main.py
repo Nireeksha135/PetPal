@@ -14,6 +14,7 @@ from server.routes import (
     vet_visits,
     documents,
     ai_doctor,
+    chat,
 )
 
 settings = get_settings()
@@ -43,6 +44,7 @@ app.include_router(flea_tick.router, prefix="/api")
 app.include_router(vet_visits.router, prefix="/api")
 app.include_router(documents.router, prefix="/api")
 app.include_router(ai_doctor.router, prefix="/api")
+app.include_router(chat.router, prefix="/api")
 
 
 @app.get("/")
