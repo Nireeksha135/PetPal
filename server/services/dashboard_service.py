@@ -17,7 +17,6 @@ from server.services.vet_visit_service import (
     count_upcoming_follow_ups,
 )
 
-
 def get_dashboard_summary(db: Session, user: User) -> DashboardSummary:
     """
     Aggregates dashboard data for the current user.
