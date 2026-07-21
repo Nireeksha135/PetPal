@@ -36,6 +36,8 @@ import DocumentDetail from "./pages/DocumentDetail";
 import AIPetDoctor from "./pages/AIPetDoctor";
 import AIConsultationDetail from "./pages/AIConsultationDetail";
 import AskPetPal from "./pages/AskPetPal";
+import DietAssistant from "./pages/DietAssistant";
+import DietPlanDetail from "./pages/DietPlanDetail";
 import NotFound from "./pages/NotFound";
 
 export default function App() {
@@ -94,6 +96,8 @@ export default function App() {
           />
           <Route path="/ask-petpal" element={<AskPetPal />} />
           <Route path="/ask-petpal/:sessionId" element={<AskPetPal />} />
+          <Route path="/diet-assistant" element={<DietAssistant />} />
+          <Route path="/diet-assistant/:planId" element={<DietPlanDetail />} />
         </Route>
       </Route>
 
