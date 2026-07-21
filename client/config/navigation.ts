@@ -54,7 +54,7 @@ export const navigation: NavGroupConfig[] = [
     items: [
       { label: "AI Pet Doctor", path: "/ai-pet-doctor", icon: Bot, enabled: true },
       { label: "Ask PetPal", path: "/ask-petpal", icon: MessageCircle, enabled: true },
-      { label: "Diet Assistant", path: "/diet-assistant", icon: Salad, enabled: false },
+      { label: "Diet Assistant", path: "/diet-assistant", icon: Salad, enabled: true },
       { label: "Daily Summary", path: "/daily-summary", icon: Sparkles, enabled: false },
     ],
   },
