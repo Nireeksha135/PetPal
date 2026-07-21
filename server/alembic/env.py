@@ -18,6 +18,7 @@ from server.models import (
     AIConsultation,
     ChatSession,
     ChatMessage,
+    DietPlan,
 )  # noqa: F401
 
 config = context.config
