@@ -8,3 +8,4 @@ from server.models.vet_visit import VetVisit, VisitType  # noqa: F401
 from server.models.document import MedicalDocument, DocumentCategory  # noqa: F401
 from server.models.ai_consultation import AIConsultation  # noqa: F401
 from server.models.chat import ChatSession, ChatMessage  # noqa: F401
+from server.models.diet_plan import DietPlan, ActivityLevel, BodyCondition  # noqa: F401
