@@ -36,3 +36,14 @@ def create_refresh_token(subject: str) -> str:
 
 def decode_token(token: str) -> dict:
     return jwt.decode(token, settings.SECRET_KEY, algorithms=[settings.ALGORITHM])
+
+
+# Minimal router so `server.routes.auth` exposes `router` for inclusion by the app.
+from fastapi import APIRouter
+
+router = APIRouter(tags=["auth"])
+
+
+@router.get("/ping")
+def ping():
+    return {"message": "auth routes (stub)"}

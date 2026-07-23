@@ -122,7 +122,7 @@ export default function DocumentDetail() {
             )}
 
             <div className="mt-6 flex flex-col gap-3">
-              
+              <a
                 href={document.fileUrl}
                 download={document.fileName}
                 target="_blank"

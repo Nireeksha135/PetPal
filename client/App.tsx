@@ -44,7 +44,8 @@ export default function App() {
   return (
     <Routes>
       <Route element={<RootLayout />}>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Navigate to="/dashboard" replace />} />
+        <Route path="/home" element={<Home />} />
       </Route>
 
       <Route element={<PublicRoute />}>

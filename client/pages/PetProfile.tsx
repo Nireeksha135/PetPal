@@ -8,7 +8,7 @@ import {
   Scale,
   Palette,
   Fingerprint,
-  VenusAndMars,
+  User,
   ShieldCheck,
   ShieldX,
   StickyNote,
@@ -114,7 +114,7 @@ export default function PetProfile() {
               value={formatDate(pet.dateOfBirth)}
             />
             <PetInfoRow
-              icon={VenusAndMars}
+              icon={User}
               label="Gender"
               value={
                 pet.gender.charAt(0).toUpperCase() + pet.gender.slice(1)

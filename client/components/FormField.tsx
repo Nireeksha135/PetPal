@@ -1,40 +1,33 @@
-import { InputHTMLAttributes, forwardRef } from "react";
-import { cn } from "@/utils/cn";
+import { forwardRef, InputHTMLAttributes } from "react";
 
 interface FormFieldProps extends InputHTMLAttributes<HTMLInputElement> {
-  label: string;
-  error?: string;
+  label?: string;
+  error?: string | undefined;
 }
 
 const FormField = forwardRef<HTMLInputElement, FormFieldProps>(
   ({ label, error, className, id, ...props }, ref) => {
-    const fieldId = id ?? props.name;
+    const fieldId = id ?? props.name?.toString();
 
     return (
-      <div className="flex flex-col gap-1.5">
-        <label
-          htmlFor={fieldId}
-          className="text-sm font-medium text-foreground"
-        >
-          {label}
-        </label>
+      <label className={["flex flex-col", className].filter(Boolean).join(" ")}>
+        {label && (
+          <span className="mb-1 text-sm font-medium" htmlFor={fieldId}>
+            {label}
+          </span>
+        )}
         <input
-          ref={ref}
           id={fieldId}
-          className={cn(
-            "h-11 rounded-xl border border-border bg-card px-4 text-sm text-foreground",
-            "placeholder:text-muted-foreground",
-            "transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20",
-            error && "border-destructive focus:border-destructive focus:ring-destructive/20",
-            className,
-          )}
+          ref={ref}
+          className="rounded-md border px-3 py-2 text-sm bg-input"
           {...props}
         />
-        {error && <span className="text-xs text-destructive">{error}</span>}
-      </div>
+        {error && <span className="mt-1 text-xs text-destructive">{error}</span>}
+      </label>
     );
   },
 );
 
 FormField.displayName = "FormField";
+
 export default FormField;
